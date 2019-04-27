@@ -1,0 +1,60 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>COMEDOR UDONE</title>
+    <link rel="shortcut icon" href="{% static 'favicon.png' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- JQuery and Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!--Icon Recourse-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--Icon Recourse-->
+    <!-- Extra recourse -->
+    {% block exrecourse %}
+    {% endblock %}
+    <!-- Extra recourse-->
+</head>
+<body style="background-color:rgba(0,0,0,0.33);">
+<br>
+<div class="container">
+    <!-- Static header -->
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="">
+            <img src="{% static 'logoudo.png' %}" width="40" height="40" class="d-inline-block align-top"
+                 alt="Logo UDONE">
+            UNIVERSIDAD DE ORIENTE
+        </a>
+        <a class="navbar-brand" href="" aling="right">
+            <img src="{% static 'dinericon.png' %}" width="40" height="40" class="d-inline-block align-top"
+                 alt="Logo Diner">
+            COMEDOR
+        </a>
+    </nav>
+    <!-- Static header -->
+    <!-- Main container -->
+    <div class="jumbotron">
+        {% block content %}
+        {% endblock %}
+        <br>
+        <br>
+        <br>
+        <!-- Footer -->
+        <footer class="page-footer font-small blue">
+            <div class="footer-copyright text-center py-3">© 2019 Copyright:
+                <a href="http://www.udo.edu.ve"> Universidad de Oriente</a>
+            </div>
+        </footer>
+        <!-- Footer -->
+    </div>
+    <!-- Main container -->
+</div>
+{% block script %}
+{% endblock %}
+</body>
+</html>

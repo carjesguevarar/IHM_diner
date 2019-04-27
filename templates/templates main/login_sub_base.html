@@ -1,0 +1,9 @@
+{% extends 'templates main/login_base.html' %}
+{% block login_content %}
+    <a href="{% block back %}{% endblock %}" class="btn btn-primary btn-sm btn-info"><i
+            class="material-icons">arrow_back</i> ATRÁS</a>
+    <br>
+    <br>
+    {% block login_sub_content %}
+    {% endblock %}
+{% endblock %}

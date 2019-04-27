@@ -1,0 +1,24 @@
+{% extends 'templates main/login_sub_base.html' %}
+{% block home %}
+    {% url 'index' %}
+{% endblock %}
+{% block back %}
+    {% url 'list_plato' %}
+{% endblock %}
+{% block user %}
+    Administrador
+{% endblock %}
+{% block login_sub_content %}
+    <form method="post">
+        {% csrf_token %}
+        <legend>ELIMINACIÓN DEL REGISRO DE PLATO</legend>
+        <br>
+        <div align="center">
+            <h4>¿Desea eliminar el plato: {{ object.nombre }}?</h4>
+            <br>
+            <button class="btn btn-primary btn-sm btn-danger" type="submit"><i
+                    class="material-icons">delete</i> ELIMINAR
+            </button>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'templates main/base.html' %}
+{% block content %}
+    <h4 align="right">
+        <a href="{% block home %}{% endblock %}" class="btn btn-primary btn-sm btn-success"><i
+                class="material-icons">home</i></a>
+        BIENVENIDO:
+        <small class="text-muted">{% block user %}{% endblock %}</small>
+    </h4>
+    {% block login_content %}
+    {% endblock %}
+{% endblock %}

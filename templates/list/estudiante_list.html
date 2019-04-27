@@ -1,0 +1,57 @@
+{% extends 'templates main/login_sub_base.html' %}
+{% block exrecourse %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8"
+            src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+{% endblock %}
+{% block home %}
+    {% url 'index' %}
+{% endblock %}
+{% block back %}
+    {% url 'index' %}
+{% endblock %}
+{% block user %}
+    Administrador
+{% endblock %}
+{% block login_sub_content %}
+    <legend>LISTADO DE REGISTRO ESTUDIANTE</legend>
+    <br>
+    {% if object_list %}
+        <table class="table table-hover" id="estudiante_list_table">
+            <thead>
+            <tr class="table-dark">
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">C.I</th>
+                <th scope="col">ACCIÓN</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for estudiante in object_list %}
+                <tr class="table-light">
+                    <td>{{ estudiante.nombre }}</td>
+                    <td>{{ estudiante.apellido }}</td>
+                    <th scope="row">{{ estudiante.ci }}</th>
+                    <th><a href="{% url 'edit_estudiante' estudiante.ci %}"
+                           class="btn btn-primary btn-sm btn-success"><i
+                            class="material-icons">edit</i></a>
+                        <a href="{% url 'del_estudiante' estudiante.ci %}" class="btn btn-primary btn-sm btn-danger"><i
+                                class="material-icons">delete</i></a>
+                    </th>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div align="center">
+            <h4>¡Oh! No hay registro de estudiantes.</h4>
+        </div>
+    {% endif %}
+{% endblock %}
+{% block script %}
+    <script>
+        $(document).ready(function () {
+            $('#estudiante_list_table').DataTable();
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'templates main/login_sub_base.html' %}
+{% block home %}
+    {% url 'index_regular' %}
+{% endblock %}
+{% block back %}
+    {% url 'list_solicitud' %}
+{% endblock %}
+{% block login_sub_content %}
+    <form method="post">
+        {% csrf_token %}
+        <legend>ELIMINACIÓN DEL REGISTO DE SOLICITUD DE PLATO</legend>
+        <br>
+        <div align="center">
+            <h4>¿Desea eliminar a la solicitud número: {{ object.id }}?</h4>
+            <br>
+            <button class="btn btn-primary btn-sm btn-danger" type="submit"><i
+                    class="material-icons">delete</i> ELIMINAR
+            </button>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'templates main/login_sub_base.html' %}
+{% block home %}
+    {% url 'index' %}
+{% endblock %}
+{% block back %}
+    {% url 'index' %}
+{% endblock %}
+{% block user %}
+    Administrador
+{% endblock %}
+{% block  login_sub_content %}
+    {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <legend>REGISTRO DE PLATO</legend>
+        <br>
+        <div class="form-group row">
+            <label for="{{ form.nombre.name }}" class="col-sm-3 col-form-label">{{ form.nombre.label }}</label>
+            <div class="col-sm-8">
+                {{ form.nombre }}
+                <small class="form-text text-muted">Longitud máxima 12 caracteres.</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="{{ form.disp.name }}" class="col-sm-3 col-form-label">{{ form.disp.label }}</label>
+            <div class="col-sm-8">
+                {{ form.disp }}
+                <small class="form-text text-muted">El número debe ser mayor a cero.</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="{{ form.fecha_disp.name }}" class="col-sm-3 col-form-label">{{ form.fecha_disp.label }}</label>
+            <div class="col-sm-8">
+                {{ form.fecha_disp }}
+                <small class="form-text text-muted">Formato dd-mm-aaaa.</small>
+            </div>
+        </div>
+        <div align="center">
+            <button class="btn btn-primary btn-sm btn-success" type="submit"><i class="material-icons">add</i> GUARDAR
+            </button>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'templates main/login_sub_base.html' %}
+{% block home %}
+    {% url 'index' %}
+{% endblock %}
+{% block back %}
+    {% url 'index' %}
+{% endblock %}
+{% block user %}
+    Administrador
+{% endblock %}
+{% block  login_sub_content %}
+    {% if form.errors %}
+        {% for field in form %}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    <strong>{{ error|escape }}</strong>
+                </div>
+            {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <legend>REGISTRO DE ESTUDIANTE</legend>
+        <br>
+        <div class="form-group row">
+            <label for="{{ form.nombre.name }}" class="col-sm-2 col-form-label">{{ form.nombre.label }}</label>
+            <div class="col-sm-8">
+                {{ form.nombre }}
+                <small class="form-text text-muted">Longitud máxima 12 caracteres.</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="{{ form.apellido.name }}" class="col-sm-2 col-form-label">{{ form.apellido.label }}</label>
+            <div class="col-sm-8">
+                {{ form.apellido }}
+                <small class="form-text text-muted">Longitud máxima 12 caracteres.</small>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="{{ form.ci.name }}" class="col-sm-2 col-form-label">{{ form.ci.label }}</label>
+            <div class="col-sm-8">
+                {{ form.ci }}
+                <small class="form-text text-muted">Las C.I son únicas.</small>
+            </div>
+        </div>
+        <div align="center">
+            <button class="btn btn-primary btn-sm btn-success" type="submit"><i class="material-icons">add</i> GUARDAR
+            </button>
+        </div>
+    </form>
+{% endblock %}

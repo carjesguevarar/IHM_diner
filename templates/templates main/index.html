@@ -1,0 +1,45 @@
+{% extends 'templates main/login_base.html' %}
+{% block home %}
+    {% url 'index' %}
+{% endblock %}
+{% block user %}
+    Administrador
+{% endblock %}
+{% block login_content %}
+    <a href="{% url 'login' %}" class="btn btn-primary btn-sm btn-info"><i class="material-icons">arrow_back</i> CERRAR
+        SESIÓN</a>
+    <br>
+    <br>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#estudiante">ESTUDIANTE</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#plato">PLATO</a>
+        </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade active show" id="estudiante">
+            <br>
+            <h4 align="center">ESTUDIANTE</h4>
+            <br>
+            <div align="center">
+                <a href="{% url 'reg_estudiante' %}" class="btn btn-primary btn-lg btn-success"><i
+                        class="material-icons">add_box</i> REGISTRAR</a>
+                <a href="{% url 'list_estudiente' %}" class="btn btn-primary btn-lg btn-info"><i class="material-icons">list_alt</i>
+                    LISTAR</a>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="plato">
+            <br>
+            <h4 align="center">PLATO</h4>
+            <br>
+            <div align="center">
+                <a href="{% url 'reg_plato' %}" class="btn btn-primary btn-lg btn-success"><i class="material-icons">add_box</i>
+                    REGISTRAR</a>
+                <a href="{% url 'list_plato' %}" class="btn btn-primary btn-lg btn-info"><i class="material-icons">list_alt</i>
+                    LISTAR</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

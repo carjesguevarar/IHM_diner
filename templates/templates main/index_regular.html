@@ -1,0 +1,30 @@
+{% extends 'templates main/login_base.html' %}
+{% block home %}
+    {% url 'index_regular' %}
+{% endblock %}
+{% block user %}
+    Regular
+{% endblock %}
+{% block login_content %}
+    <a href="{% url 'login' %}" class="btn btn-primary btn-sm btn-info"><i class="material-icons">arrow_back</i> CERRAR
+        SESIÓN</a>
+    <br>
+    <br>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#estudiante">ESTUDIANTE SOLICITUD</a>
+        </li>
+    </ul>
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade active show" id="estudiante">
+            <br>
+            <h4 align="center">ESTUDIANTE SOLICITUD</h4>
+            <br>
+            <div align="center">
+                <a href="{% url 'sol_estudiante' %}" class="btn btn-primary btn-lg btn-info"><i class="material-icons">add_box</i> REGISTRAR</a>
+                <a href="{% url 'list_solicitud' %}" class="btn btn-primary btn-lg btn-success"><i
+                        class="material-icons">list_alt</i> LISTAR SOLICITUDES</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'templates main/login_sub_base.html' %}
+{% block exrecourse %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8"
+            src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+{% endblock %}
+{% block home %}
+    {% url 'index' %}
+{% endblock %}
+{% block back %}
+    {% url 'index' %}
+{% endblock %}
+{% block user %}
+    Administrador
+{% endblock %}
+{% block login_sub_content %}
+    <legend>LISTADO DE REGISTRO PLATO</legend>
+    <br>
+    {% if object_list %}
+        <table class="table table-hover" id="plato_list_table">
+            <thead>
+            <tr class="table-dark">
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Disponibilidad</th>
+                <th scope="col">Fecha de disponibilidad</th>
+                <th scope="col">ACCIÓN</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for plato in object_list %}
+                <tr class="table-light">
+                    <th scope="row">{{ plato.id }}</th>
+                    <td>{{ plato.nombre }}</td>
+                    <td>{{ plato.disp }}</td>
+                    <td>{{ plato.fecha_disp }}</td>
+                    <th><a href="{% url 'edit_plato' plato.id %}"
+                           class="btn btn-primary btn-sm btn-success"><i
+                            class="material-icons">edit</i></a>
+                        <a href="{% url 'del_plato' plato.id %}" class="btn btn-primary btn-sm btn-danger"><i
+                                class="material-icons">delete</i></a>
+                    </th>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div align="center">
+            <h4>¡Oh! No hay registro de platos.</h4>
+        </div>
+    {% endif %}
+{% endblock %}
+{% block script %}
+    <script>
+        $(document).ready(function () {
+            $('#plato_list_table').DataTable();
+        });
+    </script>
+{% endblock %}
