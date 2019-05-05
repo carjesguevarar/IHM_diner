@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', index, name='index'),
     path('regular/', index_regular, name='index_regular'),
     # Regular
-    path('regula/sol_estudiante', SolicitudPlatoCreate.as_view(), name='sol_estudiante'),
+    path('regular/sol_estudiante', SolicitudPlatoCreate.as_view(), name='sol_estudiante'),
     path('regular/list_solicitud/', SolicitudPlatoList.as_view(), name='list_solicitud'),
     path('regular/del_solicitud/<pk>', SolicitudPlatoDelete.as_view(),
          name='del_solicitud'),
