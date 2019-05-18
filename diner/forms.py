@@ -1,5 +1,5 @@
 from django import forms
-1from .models import *
+from .models import *
 
 
 class EstudianteForm(forms.ModelForm):
