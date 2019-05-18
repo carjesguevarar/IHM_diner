@@ -6,7 +6,7 @@ class Plato(models.Model):
     nombre = models.CharField(max_length=12, null=False, blank=False)
     disp = models.IntegerField(null=False, blank=False)
     fecha_disp = models.DateField(null=False, blank=False)
-    descrip = models.CharField(max_length=60, null=False, blank=False)
+    descrip = models.CharField(max_length=60, null=True, blank=False)
 
     def __str__(self):
         return '{} - {}'.format(self.nombre, self.disp)
