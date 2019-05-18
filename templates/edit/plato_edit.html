@@ -48,6 +48,13 @@
                 <small class="form-text text-muted">Formato dd-mm-aaaa.</small>
             </div>
         </div>
+        <div class="form-group row">
+            <label for="{{ form.descrip.name }}" class="col-sm-2 col-form-label">{{ form.descrip.label }}</label>
+            <div class="col-sm-8">
+                {{ form.descrip }}
+                <small class="form-text text-muted">Longitud máxima de 60 caracteres</small>
+            </div>
+        </div>
         <div align="center">
             <button class="btn btn-primary btn-sm btn-success" type="submit"><i
                     class="material-icons">edit</i> EDITAR
