@@ -63,7 +63,7 @@ class PlatoForm(forms.ModelForm):
             'disp': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese la cantidad disponible'}),
             'fecha_disp': forms.DateTimeInput(format='%d-%m-%Y',
                                               attrs={'class': 'form-control', 'placeholder': 'Ingrese la fecha'}),
-            'descrip': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese la descripción.'})
+            'descrip': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Ingrese la descripción.'})
         }
 
 
